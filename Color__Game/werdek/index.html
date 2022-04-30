@@ -1,0 +1,80 @@
+<!--  بسم الله الرحمن الرحيم -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>حلمك بالإستغفار💪</title>
+    <style>
+        body{
+            background-color: #02be2b;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 7rem;
+            color: white;;
+        }
+        .counter{
+            padding: 3rem 9rem;
+            background: #018a45;
+            border:3px solid  #fff;
+            border-radius: 1rem;
+        }
+        .counter:hover{
+            background: #4c018aa2;
+        }
+    </style>
+</head>
+<body>
+    <div class="time">
+        <span id="hours">00</span>
+        : <span id="minutes">00</span>
+        : <span id="seconds">00</span>
+    </div>
+    <div class="counter">30000</div>
+    <script>
+        let seconds = 00;
+        let minutes = 00;
+        let hours = 00;
+        let counterElement =  document.querySelector('.counter');
+
+        const all =  window.addEventListener('keydown',(e)=> {
+            if(e.keyCode){
+            counterElement.innerHTML = counterElement.innerHTML - 1;
+            }
+            if(counterElement.innerHTML == 29999){
+                const Interval = setInterval(function(){
+                    seconds++;
+                    document.getElementById('seconds').innerHTML = seconds;
+                    if(seconds < 10){
+                        seconds = "0" + seconds;
+                        document.getElementById('seconds').innerHTML = seconds;
+                    }
+                    if(seconds >= 59){
+                        minutes++;
+                        seconds = 00;
+                        document.getElementById('minutes').innerHTML = minutes;
+                    }
+                    if(minutes < 10){
+                        document.getElementById('minutes').innerHTML = "0" + minutes;
+                    }
+                    if(minutes >= 59){
+                        minutes = 00;
+                        hours++;
+                        document.getElementById('hours').innerHTML = hours;
+                    }
+                    if(hours < 10){
+                        document.getElementById('hours').innerHTML = "0" + hours;
+
+                    }
+                },1000);
+                if(counterElement.innerHTML === 0){
+                    clearInterval(Interval);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
